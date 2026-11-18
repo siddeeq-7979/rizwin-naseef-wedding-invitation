@@ -722,6 +722,31 @@
       100% { transform: scale(1) rotate(0deg); }
     }
 
+    /* Realistic Gold Glowing Pulse when Rings Unite/Dock in Footer */
+    body.rings-united .travelling-ring {
+      filter: none;
+    }
+
+    body.rings-united .travelling-ring .ring-inner-pulse {
+      will-change: transform, filter;
+      animation: goldGlow 2.4s var(--ease-in-out-sine) infinite alternate;
+    }
+
+    @keyframes goldGlow {
+      0% {
+        transform: scale(1);
+        filter:
+          drop-shadow(0 2px 6px rgba(201, 162, 77, 0.35))
+          drop-shadow(0 0 4px rgba(201, 162, 77, 0.22));
+      }
+      100% {
+        transform: scale(1.04);
+        filter:
+          drop-shadow(0 3px 14px rgba(201, 162, 77, 0.85))
+          drop-shadow(0 0 22px rgba(201, 162, 77, 0.55));
+      }
+    }
+
     /* ==========================================================================
        7. MAIN SCROLLABLE INVITATION COLUMN & SCENES
        ========================================================================== */
@@ -1265,6 +1290,83 @@
       box-shadow: 0 4px 12px rgba(91, 26, 46, 0.08);
     }
 
+    /* 1. Mehandi Day Icon: Stroke draw-in + continuous graceful hand-wave (-4deg to 4deg) */
+    .tl-icon-mehandi {
+      transform-origin: 50% 88%;
+      will-change: transform;
+    }
+
+    .tl-icon-mehandi path,
+    .tl-icon-mehandi circle {
+      stroke-dasharray: 72;
+      stroke-dashoffset: 72;
+      transition: stroke-dashoffset 1.3s var(--ease-out-expo) 0.32s;
+    }
+
+    .scene.in-view .tl-icon-mehandi path,
+    .scene.in-view .tl-icon-mehandi circle {
+      stroke-dashoffset: 0;
+    }
+
+    .scene.in-view .tl-icon-mehandi {
+      animation: mehandiHandWave 2.6s var(--ease-in-out-sine) 1.35s infinite alternate;
+    }
+
+    @keyframes mehandiHandWave {
+      0% { transform: rotate(-4deg); }
+      100% { transform: rotate(4deg); }
+    }
+
+    /* 2. Nikah Icon: Warm welcoming handshake nod & squeeze pulse */
+    .tl-icon-nikah {
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+
+    .scene.in-view .tl-icon-nikah {
+      animation: nikahHandshakeSqueeze 3.4s ease-in-out 0.65s infinite;
+    }
+
+    @keyframes nikahHandshakeSqueeze {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      12% { transform: translate3d(0, 1.5px, 0) scale(1.06, 0.96); }
+      24% { transform: translate3d(0, -1.2px, 0) scale(1.02); }
+      36% { transform: translate3d(0, 1.1px, 0) scale(1.05, 0.97); }
+      50% { transform: translate3d(0, 0, 0) scale(1); }
+    }
+
+    /* 3. Reception Icon: Plate shimmer/scale-in on entry + continuous romantic heart pulse (1 to 1.18) */
+    .tl-icon-reception .plate-rim {
+      transform-box: fill-box;
+      transform-origin: center;
+      opacity: 0;
+      transform: scale(0.82);
+      transition: transform 0.95s var(--ease-out-expo) 0.72s, opacity 0.8s ease 0.72s;
+      will-change: transform, opacity;
+    }
+
+    .scene.in-view .tl-icon-reception .plate-rim {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .tl-icon-reception .plate-heart {
+      transform-box: fill-box;
+      transform-origin: center;
+      will-change: transform;
+    }
+
+    .scene.in-view .tl-icon-reception .plate-heart {
+      animation: receptionHeartPulse 1.8s ease-in-out 0.9s infinite;
+    }
+
+    @keyframes receptionHeartPulse {
+      0%, 100% { transform: scale(1); }
+      28% { transform: scale(1.18); }
+      52% { transform: scale(0.98); }
+      72% { transform: scale(1.11); }
+    }
+
     .tl-content {
       background: rgba(255, 253, 249, 0.76);
       border: 1px solid rgba(201, 162, 77, 0.38);
@@ -1603,6 +1705,7 @@
       display: none;
       width: 96px;
       height: 56px;
+      filter: drop-shadow(0 2px 10px rgba(201, 162, 77, 0.55));
     }
 
     /* Floating SVG hearts burst when the rings unite in the footer */
@@ -1718,6 +1821,13 @@
       }
       .static-united-rings {
         display: block !important;
+        animation: none !important;
+        filter: drop-shadow(0 2px 10px rgba(201, 162, 77, 0.55)) !important;
+      }
+      body.rings-united .travelling-ring .ring-inner-pulse {
+        animation: none !important;
+        transform: scale(1) !important;
+        filter: drop-shadow(0 2px 10px rgba(201, 162, 77, 0.55)) !important;
       }
       .united-message,
       .anim-fade-up,
@@ -2298,7 +2408,7 @@
           <div class="tl-item">
             <div class="tl-icon-circle" aria-hidden="true">
               <!-- Henna Hand Line-Art Icon -->
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8C6740" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="tl-icon-mehandi" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8C6740" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 11V6a1.5 1.5 0 0 0-3 0v4" />
                 <path d="M15 10V4.5a1.5 1.5 0 0 0-3 0V10" />
                 <path d="M12 10V5.5a1.5 1.5 0 0 0-3 0V12" />
@@ -2317,7 +2427,7 @@
           <div class="tl-item">
             <div class="tl-icon-circle" aria-hidden="true">
               <!-- Handshake Line-Art Icon -->
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8C6740" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="tl-icon-nikah" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8C6740" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m11 17 2 2a1 1 0 1 0 3-3" />
                 <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
                 <path d="m21 3 1 11h-2" />
@@ -2336,10 +2446,12 @@
           <div class="tl-item">
             <div class="tl-icon-circle" aria-hidden="true">
               <!-- Plate with Heart Line-Art Icon -->
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8C6740" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="9" />
-                <circle cx="12" cy="12" r="6.2" stroke-dasharray="2 2" />
-                <path d="M12 15.2s-3-2-3-3.9a1.8 1.8 0 0 1 3-1.3 1.8 1.8 0 0 1 3 1.3c0 1.9-3 3.9-3 3.9Z" fill="rgba(182,143,102,0.3)" />
+              <svg class="tl-icon-reception" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8C6740" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <g class="plate-rim">
+                  <circle cx="12" cy="12" r="9" />
+                  <circle cx="12" cy="12" r="6.2" stroke-dasharray="2 2" />
+                </g>
+                <path class="plate-heart" d="M12 15.2s-3-2-3-3.9a1.8 1.8 0 0 1 3-1.3 1.8 1.8 0 0 1 3 1.3c0 1.9-3 3.9-3 3.9Z" fill="rgba(182,143,102,0.3)" />
               </svg>
             </div>
             <div class="tl-content">
