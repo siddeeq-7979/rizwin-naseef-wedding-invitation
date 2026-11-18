@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A4246" />
+      <stop offset="100%" stop-color="#2D272A" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EAD2AC" />
+      <stop offset="50%" stop-color="#C9A24D" />
+      <stop offset="100%" stop-color="#8C6740" />
+    </linearGradient>
+  </defs>
+  <!-- Luxury Rounded Crest -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bg)" stroke="url(#gold)" stroke-width="2" />
+  <rect x="6" y="6" width="52" height="52" rx="10" fill="none" stroke="url(#gold)" stroke-width="0.75" stroke-dasharray="2 2" opacity="0.65" />
+
+  <!-- Interlocked Gold Wedding Rings -->
+  <g fill="none" stroke="url(#gold)" stroke-width="2.1">
+    <circle cx="27" cy="24" r="8.5" />
+    <circle cx="37" cy="24" r="8.5" />
+  </g>
+  <!-- Tiny Diamond on Bride's Ring -->
+  <polygon points="37,11.5 40,14.5 37,17.5 34,14.5" fill="#F1EEE6" stroke="url(#gold)" stroke-width="0.9" />
+
+  <!-- Monogram R & N -->
+  <text x="32" y="49" text-anchor="middle" fill="#F1EEE6" font-family="Georgia, 'Cormorant Garamond', serif" font-size="15.5" font-weight="700" letter-spacing="1.5">R&amp;N</text>
+</svg>

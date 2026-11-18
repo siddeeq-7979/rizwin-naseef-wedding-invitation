@@ -1,6 +1,6 @@
 {
   "name": "Rizwin & Naseef - Wedding Invitation",
-  "description": "Interactive mobile-first Muslim wedding invitation for Rizwin Rukiya T.K & Naseef Ashraf A.P.",
+  "description": "You are cordially invited to celebrate the wedding of Rizwin Rukiya T.K & Naseef Ashraf A.P on 1–3 January 2027. View event timings, venues, and directions.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
