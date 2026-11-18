@@ -1,0 +1,6 @@
+{
+  "name": "Rizwin & Naseef - Wedding Invitation",
+  "description": "Interactive mobile-first Muslim wedding invitation for Rizwin Rukiya T.K & Naseef Ashraf A.P.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
